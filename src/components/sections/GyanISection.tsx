@@ -2,71 +2,98 @@
 'use client';
 
 import {motion} from 'framer-motion';
+import { Mascot } from '@/components/ui/Mascot';
+import { Sparkles, Brain, Zap, ShieldCheck } from 'lucide-react';
 
 export function GyanISection() {
-  return (
-    <section className="bg-navy py-32 overflow-hidden">
-      <div className="container mx-auto px-6 max-w-[1000px] grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span className="text-yellow text-[12px] font-bold tracking-[0.2em] uppercase font-body block mb-4">
-            MEET GYANI
-          </span>
-          <h2 className="font-headline font-black text-[44px] md:text-[58px] text-white leading-[1.1]">
-            The intelligence powering India's best schools.
-          </h2>
-          <p className="mt-8 text-white/55 text-lg font-body leading-[1.7] max-w-[420px]">
-            GyanI learns how your school works, surfaces what matters, and quietly handles what it can.
-          </p>
+  const pulses = [0, 1, 2];
 
-          <div className="mt-12 flex flex-col gap-6">
-            {[
-              "Adapts to each student's learning pace automatically.",
-              'Flags attendance problems before they become serious.',
-              'Automates routine admin work without being asked.',
-            ].map((text, idx) => (
-              <div key={idx} className="border-l-4 border-yellow pl-4">
-                <p className="text-white text-base md:text-lg font-medium font-body leading-relaxed">{text}</p>
-              </div>
-            ))}
-          </div>
+  return (
+    <section className="bg-navy py-32 overflow-hidden relative">
+      {/* Dynamic Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {pulses.map((i) => (
+          <motion.div
+            key={i}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-yellow/10 rounded-full"
+            initial={{ width: 300, height: 300, opacity: 0.5 }}
+            animate={{ width: 1000, height: 1000, opacity: 0 }}
+            transition={{ duration: 4, repeat: Infinity, delay: i * 1.3 }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 max-w-[1100px] grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="order-2 md:order-1">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-yellow text-[14px] font-black tracking-[0.3em] uppercase font-body block mb-6 flex items-center gap-2">
+              <Sparkles size={16} /> POWERED BY GYANI
+            </span>
+            <h2 className="font-headline font-black text-[48px] md:text-[68px] text-white leading-[1.05]">
+              Intelligence that feels like <span className="text-yellow">magic.</span>
+            </h2>
+            <p className="mt-8 text-white/60 text-lg md:text-xl font-body leading-[1.7] max-w-[460px]">
+              GyanI isn't just an AI—it's your school's smartest assistant, working quietly behind the scenes to make everything run perfectly.
+            </p>
+
+            <div className="mt-12 space-y-8">
+              {[
+                { icon: <Brain className="text-yellow" />, text: "Predicts student needs before they become gaps." },
+                { icon: <Zap className="text-yellow" />, text: "Automates timetable logic in seconds, not weeks." },
+                { icon: <ShieldCheck className="text-yellow" />, text: "Keeps data secure and private, hosted in India." }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx} 
+                  className="flex gap-6 items-start"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10">
+                    {item.icon}
+                  </div>
+                  <p className="text-white text-lg font-bold font-body leading-relaxed pt-2">{item.text}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
-        <div className="relative flex justify-center items-center">
-          <motion.div
-            animate={{rotateZ: 360}}
-            transition={{duration: 60, repeat: Infinity, ease: 'linear'}}
-            className="relative w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full border border-yellow/15 flex justify-center items-center"
-          >
-            <div className="w-[200px] h-[200px] md:w-[240px] md:h-[240px] rounded-full border border-white/10 flex justify-center items-center">
-              <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full bg-navy-light border border-white/15 flex justify-center items-center relative overflow-hidden">
-                {/* SVG Elephant Mascot Simplified */}
-                <svg viewBox="0 0 100 100" className="w-16 h-16 fill-yellow">
-                  <circle cx="50" cy="40" r="18" />
-                  <circle cx="50" cy="70" r="22" />
-                  <path d="M35 30 L20 40 L35 50 Z" />
-                  <path d="M65 30 L80 40 L65 50 Z" />
-                  <path d="M45 50 Q45 65 35 65" stroke="#F5C842" strokeWidth="4" fill="none" strokeLinecap="round" />
-                </svg>
+        <div className="order-1 md:order-2 flex justify-center items-center">
+          <div className="relative">
+            <motion.div
+              animate={{rotateZ: 360}}
+              transition={{duration: 60, repeat: Infinity, ease: 'linear'}}
+              className="relative w-[340px] h-[340px] md:w-[440px] md:h-[440px] rounded-full border-2 border-dashed border-yellow/20 flex justify-center items-center"
+            >
+              <div className="w-[260px] h-[260px] md:w-[320px] md:h-[320px] rounded-full bg-white/5 border border-white/10 backdrop-blur-sm flex justify-center items-center">
+                <Mascot size={200} />
               </div>
-            </div>
 
-            {/* Orbiting Dots */}
-            {[
-              {delay: 0, duration: 8},
-              {delay: 120, duration: 12},
-              {delay: 240, duration: 16},
-            ].map((orbit, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-full h-full"
-                style={{rotate: `${orbit.delay}deg`}}
-                animate={{rotate: 360 + orbit.delay}}
-                transition={{duration: orbit.duration, repeat: Infinity, ease: 'linear'}}
-              >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-yellow rounded-full shadow-[0_0_15px_rgba(245,200,66,0.5)]" />
-              </motion.div>
-            ))}
-          </motion.div>
+              {/* Orbital items */}
+              {[Brain, Zap, Sparkles, ShieldCheck].map((Icon, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute bg-navy p-3 rounded-xl border border-yellow/40 shadow-[0_0_20px_rgba(245,200,66,0.2)]"
+                  style={{ 
+                    top: i === 0 || i === 1 ? '0' : 'auto',
+                    bottom: i === 2 || i === 3 ? '0' : 'auto',
+                    left: i === 0 || i === 2 ? '0' : 'auto',
+                    right: i === 1 || i === 3 ? '0' : 'auto',
+                  }}
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
+                >
+                  <Icon className="text-yellow" size={24} />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

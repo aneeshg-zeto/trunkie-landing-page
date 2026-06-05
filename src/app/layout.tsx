@@ -1,7 +1,19 @@
-
 import type {Metadata} from 'next';
 import './globals.css';
 import {Providers} from './providers';
+import { Space_Grotesk, Nunito_Sans } from 'next/font/google';
+
+const display = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  variable: '--font-display',
+});
+
+const body = Nunito_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-body',
+});
 
 export const metadata: Metadata = {
   title: 'Trunkie — One system. Every school.',
@@ -14,11 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased selection:bg-yellow selection:text-navy">
         <Providers>{children}</Providers>

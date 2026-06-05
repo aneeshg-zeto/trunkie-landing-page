@@ -1,4 +1,3 @@
-
 'use client';
 
 import {motion} from 'framer-motion';
@@ -11,7 +10,7 @@ export function SolutionSection() {
     {id: '04', name: 'Parent Communication Bridge', desc: 'No more lost WhatsApp messages.'},
     {id: '05', name: 'Automated Timetable Builder', desc: 'Schedules that actually make sense.'},
     {id: '06', name: 'Real-time Progress Reports', desc: 'Know how every student is doing, right now.'},
-    {id: '07', name: 'GyanI — The Intelligence Layer', desc: 'The brain that connects it all.'},
+    {id: '07', name: 'GyanI', desc: 'The organisation behind Trunkie.'},
   ];
 
   return (
@@ -21,7 +20,7 @@ export function SolutionSection() {
           <span className="text-yellow text-[12px] font-bold tracking-[0.2em] uppercase font-body block mb-4">
             THE SOLUTION
           </span>
-          <h2 className="font-headline font-black text-[60px] md:text-[96px] leading-[0.9] text-navy flex flex-col">
+          <h2 className="font-display font-bold text-[60px] md:text-[96px] leading-[0.9] text-navy flex flex-col">
             <span>Everything.</span>
             <span>Everyone.</span>
             <span className="text-yellow">Everywhere.</span>
@@ -44,7 +43,7 @@ export function SolutionSection() {
             >
               <div className="flex items-center gap-6">
                 <span className="text-yellow text-[12px] font-black tracking-widest pt-1">{feature.id}</span>
-                <h3 className="text-navy text-lg md:text-[19px] font-black font-headline group-hover:text-yellow transition-colors">
+                <h3 className="text-navy text-lg md:text-[19px] font-bold font-display group-hover:text-yellow transition-colors">
                   {feature.name}
                 </h3>
               </div>

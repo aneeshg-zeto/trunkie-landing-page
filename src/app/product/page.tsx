@@ -1,4 +1,3 @@
-
 'use client';
 
 import {Navbar} from '@/components/sections/Navbar';
@@ -76,7 +75,7 @@ export default function ProductPage() {
       <section className="bg-cream pt-48 pb-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h1 className="font-headline font-black text-[52px] md:text-[72px] leading-tight text-navy">
+            <h1 className="font-display font-bold text-[52px] md:text-[72px] leading-tight text-navy">
               One platform.
               <br />
               Every corner of your school.
@@ -102,7 +101,7 @@ export default function ProductPage() {
       {/* Replacement Section */}
       <section className="bg-navy py-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-20">
-          <h2 className="font-headline font-black text-white text-[36px] md:text-[48px] leading-tight">
+          <h2 className="font-display font-bold text-white text-[36px] md:text-[48px] leading-tight">
             Stop paying for five tools that never talk to each other.
           </h2>
           <div className="flex flex-col gap-8">
@@ -134,20 +133,30 @@ export default function ProductPage() {
               },
               {
                 id: '03',
-                title: 'GyanI starts learning',
-                desc: "The intelligence layer begins understanding your school's patterns and surfaces insights automatically.",
+                title: 'GyanI is the foundation',
+                desc: "Our core platform connects your entire school infrastructure from the very first day.",
               },
-            ].map((step, idx) => (
+            ].map((step, idx) => ( step.id === '03' ? (
               <div key={idx} className="py-16 border-t border-border flex flex-col md:flex-row gap-8">
-                <span className="text-yellow font-headline font-black text-[80px] leading-none shrink-0">
+                <span className="text-yellow font-display font-bold text-[80px] leading-none shrink-0">
                   {step.id}
                 </span>
                 <div className="pt-4">
-                  <h3 className="text-navy font-headline font-black text-[28px] mb-4">{step.title}</h3>
+                  <h3 className="text-navy font-display font-bold text-[28px] mb-4">{step.title}</h3>
                   <p className="text-muted font-body text-lg leading-relaxed max-w-[520px]">{step.desc}</p>
                 </div>
               </div>
-            ))}
+            ) : (
+              <div key={idx} className="py-16 border-t border-border flex flex-col md:flex-row gap-8">
+                <span className="text-yellow font-display font-bold text-[80px] leading-none shrink-0">
+                  {step.id}
+                </span>
+                <div className="pt-4">
+                  <h3 className="text-navy font-display font-bold text-[28px] mb-4">{step.title}</h3>
+                  <p className="text-muted font-body text-lg leading-relaxed max-w-[520px]">{step.desc}</p>
+                </div>
+              </div>
+            )))}
           </div>
         </div>
       </section>
@@ -155,14 +164,14 @@ export default function ProductPage() {
       {/* Features Grid */}
       <section className="bg-white py-32">
         <div className="container mx-auto px-6">
-          <h2 className="text-center font-headline font-black text-[32px] md:text-[42px] text-navy mb-20">
+          <h2 className="text-center font-display font-bold text-[32px] md:text-[42px] text-navy mb-20">
             Everything in one place.
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
             {features.map((f, i) => (
               <div key={i} className="border border-border rounded-2xl p-8 hover:bg-mist/30 transition-colors">
                 <div className="mb-4">{f.icon}</div>
-                <h4 className="font-headline font-black text-navy text-lg mb-2">{f.title}</h4>
+                <h4 className="font-display font-bold text-navy text-lg mb-2">{f.title}</h4>
                 <p className="text-muted font-body text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}

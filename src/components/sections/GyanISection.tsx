@@ -1,9 +1,8 @@
-
 'use client';
 
 import {motion} from 'framer-motion';
 import { Mascot } from '@/components/ui/Mascot';
-import { Sparkles, Brain, Zap, ShieldCheck } from 'lucide-react';
+import { Brain, Zap, Sparkles, ShieldCheck } from 'lucide-react';
 
 export function GyanISection() {
   const pulses = [0, 1, 2];
@@ -30,34 +29,31 @@ export function GyanISection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-yellow text-[14px] font-black tracking-[0.3em] uppercase font-body block mb-6 flex items-center gap-2">
-              <Sparkles size={16} /> POWERED BY GYANI
+            <span className="text-yellow text-[14px] font-black tracking-[0.3em] uppercase font-body block mb-6">
+              OUR FOUNDATION
             </span>
-            <h2 className="font-headline font-black text-[48px] md:text-[68px] text-white leading-[1.05]">
-              Intelligence that feels like <span className="text-yellow">magic.</span>
+            <h2 className="font-display font-bold text-[58px] text-white leading-[1.05]">
+              Built under <br />
+              <span className="text-yellow">GyanI.</span>
             </h2>
-            <p className="mt-8 text-white/60 text-lg md:text-xl font-body leading-[1.7] max-w-[460px]">
-              GyanI isn't just an AI—it's your school's smartest assistant, working quietly behind the scenes to make everything run perfectly.
+            <p className="mt-8 text-white/55 text-[17px] font-body leading-[1.7] max-w-[420px]">
+              Trunkie is a product of GyanI, an organisation dedicated to transforming how schools across Bharat operate, learn, and grow.
             </p>
 
             <div className="mt-12 space-y-8">
               {[
-                { icon: <Brain className="text-yellow" />, text: "Predicts student needs before they become gaps." },
-                { icon: <Zap className="text-yellow" />, text: "Automates timetable logic in seconds, not weeks." },
-                { icon: <ShieldCheck className="text-yellow" />, text: "Keeps data secure and private, hosted in India." }
-              ].map((item, idx) => (
+                "Founded with a mission to fix school infrastructure in India.",
+                "Trunkie is GyanI's first and flagship product."
+              ].map((text, idx) => (
                 <motion.div 
                   key={idx} 
-                  className="flex gap-6 items-start"
+                  className="flex gap-6 items-start border-l-4 border-yellow pl-6"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <div className="bg-white/5 p-3 rounded-2xl border border-white/10">
-                    {item.icon}
-                  </div>
-                  <p className="text-white text-lg font-bold font-body leading-relaxed pt-2">{item.text}</p>
+                  <p className="text-white text-lg font-bold font-body leading-relaxed">{text}</p>
                 </motion.div>
               ))}
             </div>

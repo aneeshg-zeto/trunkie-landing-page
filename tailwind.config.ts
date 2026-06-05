@@ -1,4 +1,3 @@
-
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -11,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        headline: ['Nunito', 'sans-serif'],
-        body: ['Nunito Sans', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

@@ -1,4 +1,3 @@
-
 'use client';
 
 import {motion} from 'framer-motion';
@@ -61,7 +60,7 @@ export function Hero() {
           <motion.h1 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-[56px] md:text-[88px] font-black leading-[0.9] font-headline text-navy"
+            className="text-[56px] md:text-[88px] font-bold leading-[0.9] font-display text-navy"
           >
             One system.
             <br />
@@ -93,11 +92,11 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/demo"
-              className="bg-yellow text-navy px-10 py-5 rounded-full font-black text-xl shadow-xl hover:translate-y-[-4px] transition-all hover:shadow-2xl active:scale-95"
+              className="bg-yellow text-navy px-10 py-5 rounded-full font-bold text-xl shadow-xl hover:translate-y-[-4px] transition-all hover:shadow-2xl active:scale-95 font-display"
             >
               Book a Demo →
             </Link>
-            <button className="bg-white border-2 border-navy text-navy px-10 py-5 rounded-full font-black text-xl hover:bg-navy hover:text-white transition-all shadow-sm">
+            <button className="bg-white border-2 border-navy text-navy px-10 py-5 rounded-full font-bold text-xl hover:bg-navy hover:text-white transition-all shadow-sm font-display">
               See How It Works
             </button>
           </div>
@@ -135,8 +134,8 @@ export function Hero() {
                 { label: 'Staff', val: '84', color: 'bg-navy/5' }
               ].map((stat, i) => (
                 <div key={i} className={`${stat.color} p-4 rounded-2xl border border-navy/5`}>
-                  <div className="text-[10px] font-black text-navy/40 uppercase tracking-widest">{stat.label}</div>
-                  <div className="text-xl font-black text-navy mt-1">{stat.val}</div>
+                  <div className="text-[10px] font-bold text-navy/40 uppercase tracking-widest font-body">{stat.label}</div>
+                  <div className="text-xl font-bold text-navy mt-1 font-display">{stat.val}</div>
                 </div>
               ))}
             </div>
@@ -162,9 +161,9 @@ export function Hero() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-2 h-2 rounded-full bg-[#27C93F] animate-pulse" />
-                <span className="text-[10px] font-black text-navy/40 uppercase tracking-widest">LIVE ATTENDANCE</span>
+                <span className="text-[10px] font-bold text-navy/40 uppercase tracking-widest font-body">LIVE ATTENDANCE</span>
               </div>
-              <div className="text-[32px] font-black text-navy font-headline leading-none">94%</div>
+              <div className="text-[32px] font-bold text-navy font-display leading-none">94%</div>
               <div className="mt-4 h-1.5 w-full bg-mist rounded-full overflow-hidden">
                 <motion.div 
                   initial={{ width: 0 }}

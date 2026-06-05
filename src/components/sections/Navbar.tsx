@@ -1,4 +1,3 @@
-
 'use client';
 
 import {useState, useEffect} from 'react';
@@ -35,10 +34,10 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex flex-col group">
-          <span className="text-2xl font-black text-yellow font-headline leading-tight transition-transform group-hover:scale-105">
+          <span className="text-2xl font-bold text-yellow font-display leading-tight transition-transform group-hover:scale-105">
             Trunkie
           </span>
-          <span className="text-[10px] font-bold text-navy opacity-60 tracking-[0.1em] font-headline">
+          <span className="text-[10px] font-bold text-navy opacity-60 tracking-[0.1em] font-display">
             INDIA'S #1 SCHOOL PLATFORM
           </span>
         </Link>
@@ -57,10 +56,10 @@ export function Navbar() {
             ))}
           </div>
           <div className="flex items-center gap-6">
-            <button className="text-[15px] font-bold text-navy hover:underline">Sign In</button>
+            <button className="text-[15px] font-bold text-navy hover:underline font-body">Sign In</button>
             <Link
               href="/demo"
-              className="bg-yellow text-navy px-6 py-3 rounded-full font-black text-[15px] shadow-sm hover:shadow-md transition-all active:scale-95"
+              className="bg-yellow text-navy px-6 py-3 rounded-full font-bold text-[15px] shadow-sm hover:shadow-md transition-all active:scale-95 font-display"
             >
               Book a Demo
             </Link>
@@ -88,16 +87,16 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold text-navy"
+                  className="text-xl font-bold text-navy font-display"
                 >
                   {link.name}
                 </Link>
               ))}
               <div className="h-px bg-border w-full my-2" />
-              <button className="text-left font-bold text-navy">Sign In</button>
+              <button className="text-left font-bold text-navy font-body">Sign In</button>
               <Link
                 href="/demo"
-                className="bg-yellow text-navy px-6 py-4 rounded-xl font-black text-center"
+                className="bg-yellow text-navy px-6 py-4 rounded-xl font-bold text-center font-display"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Book a Demo

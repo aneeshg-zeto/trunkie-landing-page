@@ -1,4 +1,3 @@
-
 'use client';
 
 import {Navbar} from '@/components/sections/Navbar';
@@ -100,17 +99,11 @@ export default function ExperiencePage() {
               DPDP Compliant.
               <br />
               Hosted on Indian Servers.
-              <br />
-              Works Offline.
-              <br />
-              Runs on 2G.
             </h2>
           </div>
           <div>
             <p className="text-white/60 text-lg font-body leading-relaxed">
-              We built Trunkie for Indian conditions, not American ones. That means it works where connectivity is
-              unreliable, where data privacy is non-negotiable, and where schools should not need an IT department to
-              run their software.
+              We built Trunkie for Indian conditions. That means data privacy is non-negotiable, and schools should not need an IT department to run their software. Every bit of data is hosted securely within the borders of Bharat.
             </p>
           </div>
         </div>

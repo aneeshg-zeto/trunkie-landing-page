@@ -18,7 +18,7 @@ export default function PartnersPage() {
     {
       label: 'FOR EDTECH PARTNERS',
       title: 'Integrate with Trunkie.',
-      desc: 'Reach thousands of schools through our platform. Build on top of the GyanI platform.',
+      desc: 'Reach thousands of schools through our platform. Build on top of the platform.',
       cta: 'Talk to Our Team →',
       bg: 'bg-navy',
       text: 'text-white',
@@ -27,7 +27,7 @@ export default function PartnersPage() {
     {
       label: 'FOR INVESTORS',
       title: 'Back India’s school infrastructure.',
-      desc: 'We are building the operating system for Bharat’s 1.5 million schools. This is category-defining.',
+      desc: 'We are building the operating system for Bharat’s schools. This is category-defining.',
       cta: 'Request Pitch Deck →',
       bg: 'bg-yellow',
       text: 'text-navy',
@@ -79,29 +79,6 @@ export default function PartnersPage() {
           </div>
         </section>
       ))}
-
-      <section className="bg-mist py-32">
-        <div className="container mx-auto px-6">
-          <h2 className="text-center font-display font-bold text-navy text-[32px] md:text-[42px] mb-20">
-            The scale of the opportunity.
-          </h2>
-          <div className="flex flex-wrap justify-center gap-12 md:gap-24">
-            {[
-              {val: '1.5M', label: 'Schools in India'},
-              {val: '300M', label: 'Students'},
-              {val: '12%', label: 'Currently digitised'},
-              {val: '₹8,000 Cr', label: 'Market size'},
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-navy font-display font-bold text-[64px] md:text-[96px] leading-none">
-                  {stat.val}
-                </div>
-                <div className="text-muted font-body text-sm mt-2">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-white py-32">
         <div className="container mx-auto px-6 max-w-[600px]">

@@ -1,4 +1,3 @@
-
 'use client';
 
 import {motion} from 'framer-motion';
@@ -61,34 +60,35 @@ export function AudienceSection() {
             </ul>
           </motion.div>
 
-          {/* Card 3 - Investor Opportunity */}
+          {/* Card 3 - For Students */}
           <motion.div
             whileHover={{y: -6}}
             className="bg-navy rounded-2xl p-10 shadow-xl transition-all relative overflow-hidden text-white"
           >
             <span className="text-yellow text-[11px] font-bold tracking-[0.2em] uppercase font-body block mb-2">
-              THE OPPORTUNITY
+              FOR STUDENTS
             </span>
             <div className="flex flex-col mb-8">
-              <span className="text-yellow font-headline font-black text-[64px] md:text-[80px] leading-none">
-                ₹8K Cr
-              </span>
-              <span className="text-white/60 font-body text-sm mt-1">addressable market</span>
+              <h3 className="font-headline font-black text-white text-xl md:text-2xl mt-2">
+                Empowered Learning
+              </h3>
+              <p className="text-white/60 font-body text-base mt-4 leading-relaxed">
+                Tools that make learning interactive, rewarding, and clear. No more guesswork on performance.
+              </p>
             </div>
 
-            <div className="border-t border-white/10 pt-8 grid grid-cols-2 gap-x-8 gap-y-8">
-              <div>
-                <div className="text-white font-headline font-black text-2xl">300M</div>
-                <div className="text-white/55 font-body text-xs mt-1">Students in India</div>
-              </div>
-              <div>
-                <div className="text-white font-headline font-black text-2xl">1.5M</div>
-                <div className="text-white/55 font-body text-xs mt-1">Schools</div>
-              </div>
-              <div>
-                <div className="text-white font-headline font-black text-2xl">12%</div>
-                <div className="text-white/55 font-body text-xs mt-1">Digitised today</div>
-              </div>
+            <div className="border-t border-white/10 pt-8 space-y-4">
+              {[
+                'AI-Powered Learning Coach',
+                'Personalized Progress Tracking',
+                'Gamified Badges & Rewards',
+                'One-Click Digital Library'
+              ].map((item) => (
+                <div key={item} className="flex items-center text-white font-bold text-sm">
+                  <span className="w-1 h-1 bg-yellow mr-2" />
+                  {item}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

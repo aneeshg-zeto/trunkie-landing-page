@@ -1,4 +1,3 @@
-
 'use client';
 
 import {motion, useInView} from 'framer-motion';
@@ -18,16 +17,6 @@ export function ProblemSection() {
 
   return (
     <section className="bg-navy py-32 overflow-hidden relative">
-      {/* Abstract Background Noise */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <svg width="100%" height="100%" viewBox="0 0 100 100">
-          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5"/>
-          </pattern>
-          <rect width="100" height="100" fill="url(#grid)" />
-        </svg>
-      </div>
-
       <div className="container mx-auto px-6 max-w-[1000px] relative z-10">
         <div className="text-center mb-24">
           <motion.div

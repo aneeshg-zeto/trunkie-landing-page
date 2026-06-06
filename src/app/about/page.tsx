@@ -3,6 +3,8 @@
 
 import {Navbar} from '@/components/sections/Navbar';
 import {Footer} from '@/components/sections/Footer';
+import {motion} from 'framer-motion';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const team = [
@@ -38,7 +40,10 @@ export default function AboutPage() {
       <section className="bg-white pt-48 pb-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <h1 className="font-headline font-black text-[52px] md:text-[72px] leading-tight text-navy">
+            <h1
+              className="font-headline font-black text-[52px] md:text-[72px] leading-tight text-navy"
+              style={{WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility'}}
+            >
               We started because we saw the chaos firsthand.
             </h1>
             <p className="mt-8 text-lg text-muted font-body leading-[1.7] max-w-[460px]">
@@ -46,12 +51,18 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <svg viewBox="0 0 200 150" className="w-80 h-auto">
-              <path d="M20 120 L100 20 L180 120 Z" className="fill-yellow" />
-              <rect x="40" y="80" width="120" height="60" className="fill-navy" />
-              <rect x="60" y="100" width="20" height="20" fill="white" />
-              <rect x="120" y="100" width="20" height="20" fill="white" />
-            </svg>
+            <motion.div
+              animate={{y: [0, -10, 0], rotate: [-1, 1, -1]}}
+              transition={{duration: 5, repeat: Infinity, ease: 'easeInOut'}}
+            >
+              <Image
+                src="/assets/artist-removebg-preview.png"
+                alt="Trunkie Artist"
+                width={360}
+                height={400}
+                style={{objectFit: 'contain'}}
+              />
+            </motion.div>
           </div>
         </div>
       </section>

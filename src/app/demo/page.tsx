@@ -3,7 +3,6 @@
 
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
-import { Mascot } from '@/components/ui/Mascot';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,26 +13,23 @@ export default function DemoPage() {
   return (
     <main>
       <Navbar />
-      <section className="bg-white pt-48 pb-32">
+      <section className="bg-white pt-36 pb-32">
         <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <Mascot size={120} className="mb-8" />
-              <h1 className="font-headline font-black text-[52px] md:text-[64px] leading-tight text-navy">
-                Let's get your school moving.
-              </h1>
-              <p className="mt-8 text-lg text-muted font-body leading-[1.7] max-w-[460px]">
-                Fill out the form and our team will get in touch within 24 hours to show you Trunkie in action.
-              </p>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+          >
+            <h1 className="font-headline font-black text-[52px] md:text-[64px] leading-tight text-navy">
+              Let's get your school moving.
+            </h1>
+            <p className="mt-8 text-lg text-muted font-body leading-[1.7] max-w-[460px]">
+              Fill out the form and our team will get in touch within 24 hours to show you Trunkie in action.
+            </p>
+          </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+          <motion.div
+            initial={{opacity: 0, x: 20}}
+            animate={{opacity: 1, x: 0}}
             className="bg-cream p-8 md:p-12 rounded-[32px] border border-border shadow-xl"
           >
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>

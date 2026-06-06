@@ -18,6 +18,7 @@ const body = Nunito_Sans({
 export const metadata: Metadata = {
   title: 'Trunkie — One system. Every school.',
   description: "India's leading school management platform. A full school operating system.",
+  icons: {icon: '/favicon.svg', shortcut: '/favicon.svg'},
 };
 
 export default function RootLayout({
@@ -27,10 +28,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      </head>
       <body className="font-body antialiased selection:bg-yellow selection:text-navy">
         <Providers>{children}</Providers>
       </body>

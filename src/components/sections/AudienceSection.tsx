@@ -16,7 +16,8 @@ export function AudienceSection() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Card 1 */}
           <motion.div
-            whileHover={{y: -6}}
+            whileHover={{y: -6, boxShadow: '0 0 0 1.5px #F5C842, 0 20px 48px rgba(15,31,61,0.10)'}}
+            style={{transition: 'box-shadow 0.25s ease'}}
             className="bg-white rounded-2xl p-10 border border-border shadow-lg transition-all relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-yellow" />
@@ -40,7 +41,8 @@ export function AudienceSection() {
 
           {/* Card 2 */}
           <motion.div
-            whileHover={{y: -6}}
+            whileHover={{y: -6, boxShadow: '0 0 0 1.5px #F5C842, 0 20px 48px rgba(15,31,61,0.10)'}}
+            style={{transition: 'box-shadow 0.25s ease'}}
             className="bg-white rounded-2xl p-10 border border-border shadow-lg transition-all relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-navy" />
@@ -62,7 +64,8 @@ export function AudienceSection() {
 
           {/* Card 3 - For Students */}
           <motion.div
-            whileHover={{y: -6}}
+            whileHover={{y: -6, boxShadow: '0 0 0 1.5px #F5C842, 0 20px 48px rgba(15,31,61,0.10)'}}
+            style={{transition: 'box-shadow 0.25s ease'}}
             className="bg-navy rounded-2xl p-10 shadow-xl transition-all relative overflow-hidden text-white"
           >
             <span className="text-yellow text-[11px] font-bold tracking-[0.2em] uppercase font-body block mb-2">

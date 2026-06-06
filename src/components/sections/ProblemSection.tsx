@@ -1,12 +1,19 @@
 'use client';
 
 import {motion, useInView} from 'framer-motion';
-import {useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { AlertCircle, Clock, Database, MessageCircle, LayoutGrid } from 'lucide-react';
 
 export function ProblemSection() {
-  const pathRef = useRef(null);
+  const pathRef = useRef<SVGPathElement>(null);
   const isInView = useInView(pathRef, {once: true});
+  const [pathLength, setPathLength] = useState(0);
+
+  useEffect(() => {
+    if (pathRef.current) {
+      setPathLength(pathRef.current.getTotalLength());
+    }
+  }, []);
 
   const problems = [
     {id: '01', icon: <LayoutGrid />, title: 'Tool Fatigue', desc: 'Too many apps that don\'t talk to each other.'},
@@ -27,7 +34,10 @@ export function ProblemSection() {
             <AlertCircle size={24} />
           </motion.div>
           
-          <h2 className="text-white text-[44px] md:text-[72px] font-black leading-none font-headline tracking-tight">
+          <h2
+            className="text-white text-[44px] md:text-[72px] font-black leading-none font-headline tracking-tight"
+            style={{WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility'}}
+          >
             Managing a school <br />
             shouldn't be <span className="text-red-400">chaos.</span>
           </h2>
@@ -41,9 +51,9 @@ export function ProblemSection() {
                 strokeWidth="4"
                 fill="none"
                 strokeLinecap="round"
-                initial={{pathLength: 0}}
-                animate={isInView ? {pathLength: 1} : {}}
-                transition={{duration: 2, ease: 'easeInOut'}}
+                initial={{strokeDashoffset: pathLength, strokeDasharray: pathLength}}
+                animate={isInView ? {strokeDashoffset: 0} : {strokeDashoffset: pathLength}}
+                transition={{duration: 1.2, ease: 'easeOut'}}
               />
             </svg>
           </div>

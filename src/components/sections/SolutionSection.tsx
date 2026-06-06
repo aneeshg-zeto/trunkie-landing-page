@@ -23,7 +23,10 @@ export function SolutionSection() {
           <span className="text-yellow text-[12px] font-bold tracking-[0.2em] uppercase font-body block mb-4">
             THE SOLUTION
           </span>
-          <h2 className="font-display font-bold text-[60px] md:text-[96px] leading-[0.9] text-navy flex flex-col">
+          <h2
+            className="font-display font-bold text-[60px] md:text-[96px] leading-[0.9] text-navy flex flex-col"
+            style={{WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility'}}
+          >
             <span>Everything.</span>
             <span>Everyone.</span>
             <span className="text-yellow">Everywhere.</span>

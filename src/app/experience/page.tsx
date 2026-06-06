@@ -3,7 +3,8 @@
 import {Navbar} from '@/components/sections/Navbar';
 import {Footer} from '@/components/sections/Footer';
 import {Testimonials} from '@/components/sections/Testimonials';
-import {SectionWrapper} from '@/components/ui/SectionWrapper';
+import {motion} from 'framer-motion';
+import Image from 'next/image';
 
 export default function ExperiencePage() {
   const personas = [
@@ -45,8 +46,8 @@ export default function ExperiencePage() {
   return (
     <main>
       <Navbar />
-      <section className="bg-white pt-48 pb-32 overflow-hidden">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <section className="bg-white pt-32 pb-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h1 className="font-headline font-black text-[52px] md:text-[72px] leading-tight text-navy">
               Designed for the people who run schools.
@@ -57,18 +58,28 @@ export default function ExperiencePage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <svg viewBox="0 0 200 200" className="w-64 h-64">
-              <circle cx="60" cy="100" r="30" className="fill-yellow" />
-              <rect x="110" y="70" width="50" height="70" className="fill-navy" rx="10" />
-              <circle cx="100" cy="40" r="20" className="fill-mist" />
-            </svg>
+            <motion.div
+              animate={{y: [0, -12, 0]}}
+              transition={{duration: 4.5, repeat: Infinity, ease: 'easeInOut'}}
+            >
+              <Image
+                src="/assets/engineer-removebg-preview.png"
+                alt="Trunkie Engineer"
+                width={380}
+                height={420}
+                style={{objectFit: 'contain'}}
+              />
+            </motion.div>
           </div>
         </div>
       </section>
 
       {personas.map((p, idx) => (
-        <section key={idx} className={`py-32 ${p.bg === 'cream' ? 'bg-cream' : p.bg === 'mist' ? 'bg-mist' : 'bg-white'}`}>
-          <div className="container mx-auto px-6 max-w-[1000px] flex flex-col md:flex-row gap-16 items-center">
+        <section
+          key={idx}
+          className={`py-32 relative ${p.bg === 'cream' ? 'bg-cream' : p.bg === 'mist' ? 'bg-mist' : 'bg-white'}`}
+        >
+          <div className="container mx-auto px-6 max-w-[1000px] flex flex-col md:flex-row gap-16 items-center relative">
             <div className="flex-1">
               <span className="text-yellow text-[12px] font-bold tracking-[0.2em] uppercase font-body block mb-4">
                 FOR {p.role.toUpperCase()}S

@@ -3,6 +3,7 @@
 import {Navbar} from '@/components/sections/Navbar';
 import {Footer} from '@/components/sections/Footer';
 import {motion} from 'framer-motion';
+import Image from 'next/image';
 
 export default function PartnersPage() {
   const strips = [
@@ -38,10 +39,13 @@ export default function PartnersPage() {
   return (
     <main>
       <Navbar />
-      <section className="bg-white pt-48 pb-32">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <section className="bg-cream pt-32 pb-24 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h1 className="font-display font-bold text-[52px] md:text-[72px] leading-tight text-navy">
+            <h1
+              className="font-display font-bold text-[52px] md:text-[72px] leading-tight text-navy"
+              style={{WebkitFontSmoothing: 'antialiased', textRendering: 'optimizeLegibility'}}
+            >
               Build India's school future with us.
             </h1>
             <p className="mt-8 text-lg text-muted font-body leading-[1.7] max-w-[460px]">
@@ -50,11 +54,19 @@ export default function PartnersPage() {
             </p>
           </div>
           <div className="flex justify-center">
-            <svg viewBox="0 0 200 200" className="w-64 h-64">
-              <circle cx="100" cy="100" r="80" stroke="#F5C842" strokeWidth="2" fill="none" />
-              <circle cx="100" cy="100" r="40" className="fill-navy" />
-              <rect x="140" y="80" width="30" height="40" className="fill-mist" />
-            </svg>
+            <motion.div
+              animate={{y: [0, -12, 0]}}
+              transition={{duration: 4.5, repeat: Infinity, ease: 'easeInOut'}}
+            >
+              <Image
+                src="/assets/indian-removebg-preview.png"
+                alt="Trunkie"
+                width={380}
+                height={420}
+                style={{objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(15,31,61,0.10))'}}
+                priority
+              />
+            </motion.div>
           </div>
         </div>
       </section>
@@ -79,32 +91,6 @@ export default function PartnersPage() {
           </div>
         </section>
       ))}
-
-      <section className="bg-white py-32">
-        <div className="container mx-auto px-6 max-w-[600px]">
-          <h2 className="text-center font-display font-bold text-navy text-[36px] mb-12">Get in touch.</h2>
-          <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-            <input
-              type="text"
-              placeholder="Name"
-              className="border border-border rounded-xl px-5 py-4 font-body text-navy focus:border-yellow outline-none transition-all"
-            />
-            <input
-              type="text"
-              placeholder="School or Organisation"
-              className="border border-border rounded-xl px-5 py-4 font-body text-navy focus:border-yellow outline-none transition-all"
-            />
-            <textarea
-              placeholder="Message"
-              rows={5}
-              className="border border-border rounded-xl px-5 py-4 font-body text-navy focus:border-yellow outline-none transition-all"
-            />
-            <button className="bg-yellow text-navy font-bold font-display py-5 rounded-xl text-xl hover:shadow-lg transition-all">
-              Send Message →
-            </button>
-          </form>
-        </div>
-      </section>
 
       <Footer />
     </main>

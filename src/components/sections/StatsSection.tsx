@@ -15,7 +15,9 @@ export function StatsSection() {
           <div className="text-center">
             <p className="text-[14px] font-bold text-navy/60 uppercase tracking-widest mb-2">Reduce</p>
             <div className="text-navy text-[80px] md:text-[96px] font-black font-headline leading-none">
-              <AnimatedCounter value={40} />%
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>
+                <AnimatedCounter value={40} />%
+              </span>
             </div>
             <p className="text-navy/70 text-base md:text-lg font-bold font-body mt-2">Administrative Workload</p>
           </div>
@@ -23,7 +25,9 @@ export function StatsSection() {
           <div className="text-center">
             <p className="text-[14px] font-bold text-navy/60 uppercase tracking-widest mb-2">Increase</p>
             <div className="text-navy text-[80px] md:text-[96px] font-black font-headline leading-none">
-              <AnimatedCounter value={3} />×
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>
+                <AnimatedCounter value={3} />×
+              </span>
             </div>
             <p className="text-navy/70 text-base md:text-lg font-bold font-body mt-2">Parent-Teacher Communication</p>
           </div>
@@ -31,15 +35,21 @@ export function StatsSection() {
 
         <div className="border-t border-navy/15 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <div className="text-center">
-            <div className="text-navy text-[36px] font-black font-headline">500+</div>
+            <div className="text-navy text-[36px] font-black font-headline">
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>500+</span>
+            </div>
             <p className="text-[14px] font-bold text-navy/70 font-body uppercase tracking-wider">Schools Across India</p>
           </div>
           <div className="text-center">
-            <div className="text-navy text-[36px] font-black font-headline">2,00,000+</div>
+            <div className="text-navy text-[36px] font-black font-headline">
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>2,00,000+</span>
+            </div>
             <p className="text-[14px] font-bold text-navy/70 font-body uppercase tracking-wider">Students on Platform</p>
           </div>
           <div className="text-center">
-            <div className="text-navy text-[36px] font-black font-headline">98%</div>
+            <div className="text-navy text-[36px] font-black font-headline">
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>98%</span>
+            </div>
             <p className="text-[14px] font-bold text-navy/70 font-body uppercase tracking-wider">Admin Time Saved</p>
           </div>
         </div>

@@ -22,7 +22,16 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0A1628] pt-24 pb-12 overflow-hidden">
+    <footer
+      className="bg-[#0A1628] pt-24 pb-12 overflow-hidden"
+      style={{
+        borderTop: '1px solid transparent',
+        backgroundImage:
+          'linear-gradient(#0A1628, #0A1628), linear-gradient(90deg, transparent 0%, #F5C842 50%, transparent 100%)',
+        backgroundOrigin: 'border-box',
+        backgroundClip: 'padding-box, border-box',
+      }}
+    >
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between gap-16 mb-20">
           <div className="max-w-xs">

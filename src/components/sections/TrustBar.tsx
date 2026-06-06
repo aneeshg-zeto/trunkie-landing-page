@@ -10,7 +10,7 @@ export function TrustBar() {
   ];
 
   return (
-    <div className="bg-white border-y border-border py-8">
+    <div className="relative z-10 bg-white rounded-t-[2.5rem] md:rounded-t-[4rem] pt-12 md:pt-14 pb-8 shadow-[0_-8px_40px_rgba(15,31,61,0.04)]">
       <div className="container mx-auto px-6">
         <p className="text-center text-[12px] font-bold text-muted uppercase tracking-[0.2em] mb-6">
           Trusted by schools across Bharat

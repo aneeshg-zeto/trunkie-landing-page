@@ -5,19 +5,23 @@ import Link from 'next/link';
 import {motion, AnimatePresence} from 'framer-motion';
 import {Menu, X} from 'lucide-react';
 import {cn} from '@/lib/utils';
-import { Mascot } from '@/components/ui/Mascot';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navLinks = [
     {name: 'Product', href: '/product'},
@@ -26,81 +30,116 @@ export function Navbar() {
   ];
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-white/85 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'
-      )}
-    >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <Mascot size={32} />
-          <div className="flex flex-col">
-            <span className="text-2xl font-black text-yellow font-display leading-none transition-transform group-hover:scale-105">
-              Trunkie
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-10">
-          <div className="flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-[15px] font-semibold text-navy hover:text-yellow transition-colors font-display"
+    <>
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-4 pointer-events-none">
+        <nav
+          className={cn(
+            'pointer-events-auto max-w-7xl mx-auto h-14 rounded-2xl transition-all duration-300',
+            'backdrop-blur-xl border'
+          )}
+          style={{
+            background: isScrolled ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0.45)',
+            borderColor: 'rgba(255,255,255,0.55)',
+            boxShadow: isScrolled
+              ? '0 8px 32px rgba(15,31,61,0.10), inset 0 1px 0 rgba(255,255,255,0.7)'
+              : '0 4px 24px rgba(15,31,61,0.06), inset 0 1px 0 rgba(255,255,255,0.5)',
+          }}
+        >
+          <div className="px-6 h-full flex justify-between items-center">
+            <Link href="/" className="no-underline">
+              <span
+                className="font-display font-bold text-[22px] text-[#0F1F3D] tracking-[-0.02em]"
               >
-                {link.name}
-              </Link>
-            ))}
-          </div>
-          <Link
-            href="/demo"
-            className="bg-yellow text-navy px-8 py-3 rounded-full font-bold text-[15px] shadow-sm hover:shadow-md transition-all active:scale-95 font-display"
-          >
-            Book a Demo
-          </Link>
-        </div>
+                Trunkie
+              </span>
+            </Link>
 
-        {/* Mobile Toggle */}
-        <button className="md:hidden text-navy" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{opacity: 0, height: 0}}
-            animate={{opacity: 1, height: 'auto'}}
-            exit={{opacity: 0, height: 0}}
-            className="md:hidden bg-white border-b border-border overflow-hidden"
-          >
-            <div className="px-6 py-8 flex flex-col gap-6">
+            <div className="hidden md:flex items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold text-navy font-display"
+                  className="font-display font-medium text-[15px] text-[#0F1F3D] hover:text-[#F5C842] transition-colors no-underline"
                 >
                   {link.name}
                 </Link>
               ))}
-              <div className="h-px bg-border w-full my-2" />
+            </div>
+
+            <div className="flex items-center gap-4">
+              <motion.div
+                whileHover={{scale: 1.03}}
+                whileTap={{scale: 0.97}}
+                className="hidden md:block"
+              >
+                <Link
+                  href="/demo"
+                  className="inline-block font-display font-semibold text-[14px] text-[#0F1F3D] px-5 py-2.5 rounded-full no-underline"
+                  style={{
+                    background: 'linear-gradient(180deg, #FAD84A 0%, #F5C842 100%)',
+                    boxShadow: '0 4px 14px rgba(245,200,66,0.40), inset 0 1px 0 rgba(255,255,255,0.35)',
+                  }}
+                >
+                  Book a Demo
+                </Link>
+              </motion.div>
+
+              <button
+                className="md:hidden text-[#0F1F3D]"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <Menu size={22} />
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{y: '-100%'}}
+            animate={{y: 0}}
+            exit={{y: '-100%'}}
+            transition={{duration: 0.35, ease: 'easeInOut'}}
+            className="fixed inset-0 z-[60] bg-white/80 backdrop-blur-2xl flex flex-col items-center justify-center gap-8"
+          >
+            <button
+              className="absolute top-6 right-8 text-[#0F1F3D]"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={28} />
+            </button>
+
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-display font-bold text-[32px] text-[#0F1F3D] no-underline"
+              >
+                {link.name}
+              </Link>
+            ))}
+
+            <motion.div whileHover={{scale: 1.03}} whileTap={{scale: 0.97}}>
               <Link
                 href="/demo"
-                className="bg-yellow text-navy px-6 py-4 rounded-xl font-bold text-center font-display"
                 onClick={() => setMobileMenuOpen(false)}
+                className="inline-block font-display font-semibold text-[14px] text-[#0F1F3D] px-5 py-2.5 rounded-full no-underline"
+                style={{
+                  background: 'linear-gradient(180deg, #FAD84A 0%, #F5C842 100%)',
+                  boxShadow: '0 4px 14px rgba(245,200,66,0.40), inset 0 1px 0 rgba(255,255,255,0.35)',
+                }}
               >
                 Book a Demo
               </Link>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 }

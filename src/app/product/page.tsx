@@ -4,68 +4,83 @@ import {Navbar} from '@/components/sections/Navbar';
 import {Footer} from '@/components/sections/Footer';
 import {CTASection} from '@/components/sections/CTASection';
 import {motion} from 'framer-motion';
-import {
-  ArrowRight,
-  BookOpen,
-  FileText,
-  IndianRupee,
-  MessageSquare,
-  Calendar,
-  BarChart2,
-  UserCheck,
-  TrendingUp,
-} from 'lucide-react';
 
 export default function ProductPage() {
-  const replacements = [
-    {old: 'WhatsApp Groups', new: 'Parent Communication Bridge'},
-    {old: 'Excel Registers', new: 'Automated Attendance System'},
-    {old: 'Separate Fee Apps', new: 'Integrated Fee Collection'},
-    {old: 'Paper Timetables', new: 'Smart Timetable Builder'},
-    {old: 'Standalone LMS', new: 'Connected Learning System'},
-  ];
-
-  const features = [
+  const categories = [
     {
-      icon: <BookOpen className="text-yellow" size={24} />,
-      title: 'Learning Management',
-      desc: 'A complete system for lessons, assignments, and assessments.',
+      label: 'STUDENT LEARNING',
+      features: [
+        'AI Generated Question Papers',
+        'AI Generated Assignments and Homework',
+        'AI Smart Test',
+        'AI Post Exam Analysis',
+        'AI Post Assignment Analysis',
+        'AI Generated Chapter Summaries',
+        'AI Generated Learning Tips',
+        'AI Performance Prediction',
+        'Genius Zone',
+        'Digital Library',
+        'Class Recordings',
+        'Badges and Gamification'
+      ]
     },
     {
-      icon: <FileText className="text-yellow" size={24} />,
-      title: 'Exam Paper Generator',
-      desc: 'Create question papers in minutes using topic and difficulty settings.',
+      label: 'ADMINISTRATION',
+      features: [
+        'Fee Management',
+        'Library Management',
+        'Transport Management',
+        'Attendance Management',
+        'Timetable Management',
+        'Academic Calendar',
+        'Exam Management',
+        'Report Cards',
+        'ID Card Management',
+        'TC Management',
+        'Class Management',
+        'To-Do Tracker'
+      ]
     },
     {
-      icon: <IndianRupee className="text-yellow" size={24} />,
-      title: 'Fee Tracking',
-      desc: 'Collect, track, and reconcile every payment in one dashboard.',
+      label: 'STAFF AND TEACHING',
+      features: [
+        'Teacher and Staff Management',
+        'AI Generated Teaching Tips',
+        'AI Syllabus Planning',
+        'Conduct Control',
+        'Teacher Comparison',
+        'Comprehensive Guide List'
+      ]
     },
     {
-      icon: <MessageSquare className="text-yellow" size={24} />,
-      title: 'Parent Bridge',
-      desc: 'Real-time updates directly to parents, no WhatsApp needed.',
+      label: 'PARENT AND COMMUNICATION',
+      features: [
+        'Notifications and Announcements',
+        'In-Built Messaging and Communication',
+        'Multiple Children Management',
+        'Student Suggestions',
+        'Connect Zone',
+        'Visitor Access Management'
+      ]
     },
     {
-      icon: <Calendar className="text-yellow" size={24} />,
-      title: 'Timetable Builder',
-      desc: 'Automated scheduling that respects teacher availability and room capacity.',
+      label: 'SAFETY AND GOVERNANCE',
+      features: [
+        'Vigilance Zone',
+        'Grievance Management',
+        'AI Insights',
+        'End to End Analytics'
+      ]
     },
     {
-      icon: <BarChart2 className="text-yellow" size={24} />,
-      title: 'Progress Reports',
-      desc: 'Student performance reports generated automatically, shared instantly.',
-    },
-    {
-      icon: <UserCheck className="text-yellow" size={24} />,
-      title: 'Attendance System',
-      desc: 'Digital attendance with instant parent notification.',
-    },
-    {
-      icon: <TrendingUp className="text-yellow" size={24} />,
-      title: 'Analytics Dashboard',
-      desc: 'School-wide data in one view for leadership decisions.',
-    },
+      label: 'AI TOOLS',
+      features: [
+        'AI Avatar',
+        'AI Language Coach',
+        'AI Performance Prediction',
+        'AI Insights'
+      ]
+    }
   ];
 
   return (
@@ -98,81 +113,37 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Replacement Section */}
-      <section className="bg-navy py-32">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-20">
-          <h2 className="font-display font-bold text-white text-[36px] md:text-[48px] leading-tight">
-            Stop paying for five tools that never talk to each other.
-          </h2>
-          <div className="flex flex-col gap-8">
-            {replacements.map((item, idx) => (
-              <div key={idx} className="grid grid-cols-[1fr_40px_1fr] items-center gap-4">
-                <span className="text-white/40 line-through font-body text-sm md:text-base">{item.old}</span>
-                <ArrowRight className="text-yellow mx-auto" size={16} />
-                <span className="text-white font-bold font-body text-sm md:text-base">{item.new}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section className="bg-cream py-32">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col gap-0">
-            {[
-              {
-                id: '01',
-                title: 'Sign up and onboard yourself',
-                desc: 'Your school is live in under four hours. No IT team needed. No consultant required.',
-              },
-              {
-                id: '02',
-                title: 'Everyone connects from day one',
-                desc: 'Students, teachers, and parents all have access immediately.',
-              },
-              {
-                id: '03',
-                title: 'GyanI is the foundation',
-                desc: "Our core platform connects your entire school infrastructure from the very first day.",
-              },
-            ].map((step, idx) => ( step.id === '03' ? (
-              <div key={idx} className="py-16 border-t border-border flex flex-col md:flex-row gap-8">
-                <span className="text-yellow font-display font-bold text-[80px] leading-none shrink-0">
-                  {step.id}
-                </span>
-                <div className="pt-4">
-                  <h3 className="text-navy font-display font-bold text-[28px] mb-4">{step.title}</h3>
-                  <p className="text-muted font-body text-lg leading-relaxed max-w-[520px]">{step.desc}</p>
-                </div>
-              </div>
-            ) : (
-              <div key={idx} className="py-16 border-t border-border flex flex-col md:flex-row gap-8">
-                <span className="text-yellow font-display font-bold text-[80px] leading-none shrink-0">
-                  {step.id}
-                </span>
-                <div className="pt-4">
-                  <h3 className="text-navy font-display font-bold text-[28px] mb-4">{step.title}</h3>
-                  <p className="text-muted font-body text-lg leading-relaxed max-w-[520px]">{step.desc}</p>
-                </div>
-              </div>
-            )))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Grid */}
+      {/* Feature Grid Section */}
       <section className="bg-white py-32">
         <div className="container mx-auto px-6">
-          <h2 className="text-center font-display font-bold text-[32px] md:text-[42px] text-navy mb-20">
-            Everything in one place.
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            {features.map((f, i) => (
-              <div key={i} className="border border-border rounded-2xl p-8 hover:bg-mist/30 transition-colors">
-                <div className="mb-4">{f.icon}</div>
-                <h4 className="font-display font-bold text-navy text-lg mb-2">{f.title}</h4>
-                <p className="text-muted font-body text-sm leading-relaxed">{f.desc}</p>
+          <div className="text-center mb-20">
+            <h2 className="font-display font-bold text-[42px] text-navy">Everything your school needs.</h2>
+            <p className="text-muted font-body text-base mt-3 max-w-2xl mx-auto">
+              Over 40 features built for every role in the school. No third-party tools needed.
+            </p>
+            <div className="mt-8">
+              <div className="font-display font-bold text-[48px] text-yellow leading-none">40+</div>
+              <div className="text-muted font-body text-[14px] mt-1">features in one platform</div>
+            </div>
+          </div>
+
+          <div className="space-y-24">
+            {categories.map((cat, idx) => (
+              <div key={idx}>
+                <span className="font-display font-semibold text-yellow text-[11px] uppercase tracking-widest mb-6 block">
+                  {cat.label}
+                </span>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {cat.features.map((feature, fIdx) => (
+                    <motion.div
+                      key={fIdx}
+                      whileHover={{ y: -2 }}
+                      className="bg-white border border-border rounded-xl px-5 py-4 flex items-center shadow-sm"
+                    >
+                      <span className="font-display font-semibold text-navy text-[15px]">{feature}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

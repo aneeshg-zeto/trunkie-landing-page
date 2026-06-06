@@ -5,6 +5,7 @@ import Link from 'next/link';
 import {motion, AnimatePresence} from 'framer-motion';
 import {Menu, X} from 'lucide-react';
 import {cn} from '@/lib/utils';
+import { Mascot } from '@/components/ui/Mascot';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,48 +23,44 @@ export function Navbar() {
     {name: 'Product', href: '/product'},
     {name: 'Experience', href: '/experience'},
     {name: 'Partners', href: '/partners'},
-    {name: 'About', href: '/about'},
   ];
 
   return (
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-white/80 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white/85 backdrop-blur-md border-b border-border py-4' : 'bg-transparent py-6'
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex flex-col group">
-          <span className="text-2xl font-bold text-yellow font-display leading-tight transition-transform group-hover:scale-105">
-            Trunkie
-          </span>
-          <span className="text-[10px] font-bold text-navy opacity-60 tracking-[0.1em] font-display">
-            INDIA'S #1 SCHOOL PLATFORM
-          </span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <Mascot size={32} />
+          <div className="flex flex-col">
+            <span className="text-2xl font-black text-yellow font-display leading-none transition-transform group-hover:scale-105">
+              Trunkie
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-10">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-[15px] font-medium text-navy hover:text-yellow transition-colors font-body"
+                className="text-[15px] font-semibold text-navy hover:text-yellow transition-colors font-display"
               >
                 {link.name}
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-6">
-            <button className="text-[15px] font-bold text-navy hover:underline font-body">Sign In</button>
-            <Link
-              href="/demo"
-              className="bg-yellow text-navy px-6 py-3 rounded-full font-bold text-[15px] shadow-sm hover:shadow-md transition-all active:scale-95 font-display"
-            >
-              Book a Demo
-            </Link>
-          </div>
+          <Link
+            href="/demo"
+            className="bg-yellow text-navy px-8 py-3 rounded-full font-bold text-[15px] shadow-sm hover:shadow-md transition-all active:scale-95 font-display"
+          >
+            Book a Demo
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -93,7 +90,6 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="h-px bg-border w-full my-2" />
-              <button className="text-left font-bold text-navy font-body">Sign In</button>
               <Link
                 href="/demo"
                 className="bg-yellow text-navy px-6 py-4 rounded-xl font-bold text-center font-display"

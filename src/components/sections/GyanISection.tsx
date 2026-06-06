@@ -9,7 +9,6 @@ export function GyanISection() {
 
   return (
     <section className="bg-navy py-32 overflow-hidden relative">
-      {/* Dynamic Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {pulses.map((i) => (
           <motion.div
@@ -71,7 +70,6 @@ export function GyanISection() {
                 <Mascot size={200} />
               </div>
 
-              {/* Orbital items */}
               {[Brain, Zap, Sparkles, ShieldCheck].map((Icon, i) => (
                 <motion.div
                   key={i}

@@ -1,4 +1,3 @@
-
 'use client';
 
 import {motion} from 'framer-motion';
@@ -10,10 +9,10 @@ export function AppDownload() {
       <div className="container mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
         <div>
           <h2 className="font-headline font-black text-[36px] md:text-[44px] text-white leading-[1.1]">
-            Download the Trunkie Parent App
+            Download Trunkie
           </h2>
           <p className="mt-6 text-white/60 text-lg font-body leading-[1.7] max-w-[400px]">
-            Everything you need to stay updated about your child's school. Available on iOS and Android.
+            Everything parents, teachers, and admins need — in one app. Available on iOS and Android.
           </p>
 
           <div className="mt-12 flex flex-wrap gap-4">

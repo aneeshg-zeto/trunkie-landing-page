@@ -4,13 +4,16 @@ import {motion} from 'framer-motion';
 
 export function SolutionSection() {
   const features = [
-    {id: '01', name: 'Learning Management System', desc: 'Everything a teacher needs to run class.'},
-    {id: '02', name: 'AI-Generated Exam Papers', desc: 'Create tests in minutes, not hours.'},
-    {id: '03', name: 'Fee Collection and Tracking', desc: 'Every rupee, accounted for.'},
-    {id: '04', name: 'Parent Communication Bridge', desc: 'No more lost WhatsApp messages.'},
-    {id: '05', name: 'Automated Timetable Builder', desc: 'Schedules that actually make sense.'},
-    {id: '06', name: 'Real-time Progress Reports', desc: 'Know how every student is doing, right now.'},
-    {id: '07', name: 'GyanI', desc: 'The organisation behind Trunkie.'},
+    {id: '01', name: 'Fee Management', desc: 'Every rupee collected and tracked in one place.'},
+    {id: '02', name: 'Attendance Management', desc: 'Digital attendance with instant parent alerts.'},
+    {id: '03', name: 'AI Generated Question Papers', desc: 'Create tests in minutes, not hours.'},
+    {id: '04', name: 'Timetable Management', desc: 'Automated scheduling that actually make sense.'},
+    {id: '05', name: 'Report Cards', desc: 'Generated and shared automatically each term.'},
+    {id: '06', name: 'In-Built Messaging', desc: 'No WhatsApp groups. One platform for all communication.'},
+    {id: '07', name: 'Transport Management', desc: 'Track buses, routes, and student safety.'},
+    {id: '08', name: 'Exam Management', desc: 'End to end exam lifecycle in one workflow.'},
+    {id: '09', name: 'AI Performance Prediction', desc: 'Know which students need help before it is too late.'},
+    {id: '10', name: 'End to End Analytics', desc: 'School-wide data in one dashboard for leadership.'},
   ];
 
   return (

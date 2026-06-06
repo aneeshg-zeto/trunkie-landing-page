@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import {Twitter, Linkedin, Instagram} from 'lucide-react';
 
@@ -6,7 +5,7 @@ export function Footer() {
   const footerGroups = [
     {
       title: 'Product',
-      links: ['Features', 'GyanI', 'For Schools', 'Pricing', 'Roadmap'],
+      links: ['Features', 'For Schools', 'Pricing', 'Roadmap'],
     },
     {
       title: 'Company',

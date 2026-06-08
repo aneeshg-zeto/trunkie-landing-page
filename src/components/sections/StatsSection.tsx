@@ -36,7 +36,7 @@ export function StatsSection() {
         <div className="border-t border-navy/15 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           <div className="text-center">
             <div className="text-navy text-[36px] font-black font-headline">
-              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>500+</span>
+              <span style={{borderBottom: '3px solid #F5C842', paddingBottom: '4px', display: 'inline-block'}}>100+</span>
             </div>
             <p className="text-[14px] font-bold text-navy/70 font-body uppercase tracking-wider">Schools Across India</p>
           </div>

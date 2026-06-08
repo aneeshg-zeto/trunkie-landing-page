@@ -32,7 +32,7 @@ export function Hero() {
         >
           <span className="font-display font-bold text-[#F5C842] text-sm">T</span>
           <span className="font-body text-[13px] text-[#0F1F3D]">
-            Trusted by <strong className="font-semibold">500+ schools</strong> across Bharat
+            Trusted by <strong className="font-semibold">100+ schools</strong> across Bharat
           </span>
         </motion.div>
 

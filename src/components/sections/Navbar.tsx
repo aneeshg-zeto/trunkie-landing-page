@@ -45,8 +45,8 @@ export function Navbar() {
               : '0 4px 24px rgba(15,31,61,0.06), inset 0 1px 0 rgba(255,255,255,0.5)',
           }}
         >
-          <div className="px-6 h-full flex justify-between items-center">
-            <Link href="/" className="no-underline">
+          <div className="relative px-6 h-full flex items-center">
+            <Link href="/" className="no-underline relative z-10">
               <span
                 className="font-display font-bold text-[22px] text-[#0F1F3D] tracking-[-0.02em]"
               >
@@ -54,7 +54,7 @@ export function Navbar() {
               </span>
             </Link>
 
-            <div className="hidden md:flex items-center gap-10">
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -66,7 +66,7 @@ export function Navbar() {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="ml-auto flex items-center gap-4 relative z-10">
               <motion.div
                 whileHover={{scale: 1.03}}
                 whileTap={{scale: 0.97}}

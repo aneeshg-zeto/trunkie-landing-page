@@ -1,7 +1,6 @@
 
 import {Navbar} from '@/components/sections/Navbar';
 import {Hero} from '@/components/sections/Hero';
-import {TrustBar} from '@/components/sections/TrustBar';
 import {ProblemSection} from '@/components/sections/ProblemSection';
 import {SolutionSection} from '@/components/sections/SolutionSection';
 import {StatsSection} from '@/components/sections/StatsSection';
@@ -18,7 +17,6 @@ export default function Home() {
     <main className="relative min-h-screen">
       <Navbar />
       <Hero />
-      <TrustBar />
       <ProblemSection />
       <SolutionSection />
       <StatsSection />

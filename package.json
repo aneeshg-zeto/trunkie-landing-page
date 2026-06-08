@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "rm -rf .next",
     "dev": "next dev -p 9002",
+    "dev:clean": "rm -rf .next && next dev -p 9002",
     "dev:turbo": "next dev --turbopack -p 9002",
     "clean": "rm -rf .next",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",

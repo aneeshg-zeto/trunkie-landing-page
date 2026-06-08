@@ -1,41 +1,11 @@
 'use client';
 
 import {Navbar} from '@/components/sections/Navbar';
-import {Footer} from '@/components/sections/Footer';
+import {SchoolLogos} from '@/components/sections/SchoolLogos';
 import {motion} from 'framer-motion';
 import Image from 'next/image';
 
 export default function PartnersPage() {
-  const strips = [
-    {
-      label: 'FOR SCHOOLS',
-      title: 'Become a Trunkie school.',
-      desc: 'Early access, priority onboarding, shaped by your feedback. Join the schools already running smarter.',
-      cta: 'Apply for Early Access →',
-      bg: 'bg-cream',
-      text: 'text-navy',
-      btn: 'bg-navy text-white',
-    },
-    {
-      label: 'FOR EDTECH PARTNERS',
-      title: 'Integrate with Trunkie.',
-      desc: 'Reach thousands of schools through our platform. Build on top of the platform.',
-      cta: 'Talk to Our Team →',
-      bg: 'bg-navy',
-      text: 'text-white',
-      btn: 'bg-yellow text-navy',
-    },
-    {
-      label: 'FOR INVESTORS',
-      title: 'Back India’s school infrastructure.',
-      desc: 'We are building the operating system for Bharat’s schools. This is category-defining.',
-      cta: 'Request Pitch Deck →',
-      bg: 'bg-yellow',
-      text: 'text-navy',
-      btn: 'bg-navy text-white',
-    },
-  ];
-
   return (
     <main>
       <Navbar />
@@ -71,28 +41,7 @@ export default function PartnersPage() {
         </div>
       </section>
 
-      {strips.map((strip, idx) => (
-        <section key={idx} className={`${strip.bg} py-32`}>
-          <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="max-w-md">
-              <span className={`text-[12px] font-bold tracking-widest uppercase mb-4 block ${strip.text === 'text-white' ? 'text-yellow' : 'text-yellow'}`}>
-                {strip.label}
-              </span>
-              <h2 className={`font-display font-bold text-[32px] md:text-[42px] leading-tight ${strip.text}`}>
-                {strip.title}
-              </h2>
-            </div>
-            <div className="max-w-md text-right md:text-left">
-              <p className={`font-body text-lg mb-8 opacity-80 ${strip.text}`}>{strip.desc}</p>
-              <button className={`${strip.btn} px-8 py-4 rounded-xl font-bold transition-transform hover:scale-105`}>
-                {strip.cta}
-              </button>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <Footer />
+      <SchoolLogos />
     </main>
   );
 }

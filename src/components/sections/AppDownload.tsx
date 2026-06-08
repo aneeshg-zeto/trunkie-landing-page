@@ -1,7 +1,40 @@
 'use client';
 
 import {motion} from 'framer-motion';
+import Image from 'next/image';
 import {Apple, Smartphone} from 'lucide-react';
+
+function PhoneMockup({
+  src,
+  alt,
+  className,
+  animateDelay = 0,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  animateDelay?: number;
+}) {
+  return (
+    <motion.div
+      animate={{y: [0, -8, 0]}}
+      transition={{duration: 4, repeat: Infinity, ease: 'easeInOut', delay: animateDelay}}
+      className={`w-[180px] h-[360px] sm:w-[200px] sm:h-[400px] md:w-[220px] md:h-[440px] bg-navy-light rounded-[32px] border-2 border-white/15 p-3 shadow-[0_40px_100px_rgba(0,0,0,0.5)] relative ${className ?? ''}`}
+    >
+      <div className="w-full h-full bg-navy rounded-[24px] overflow-hidden relative">
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 z-10 w-16 h-3 bg-navy-light rounded-full" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 768px) 45vw, 220px"
+          className="object-cover object-top"
+          style={{objectFit: 'cover', objectPosition: 'top'}}
+        />
+      </div>
+    </motion.div>
+  );
+}
 
 export function AppDownload() {
   return (
@@ -27,36 +60,19 @@ export function AppDownload() {
           </div>
         </div>
 
-        <div className="flex justify-center md:justify-end">
-          <motion.div
-            animate={{y: [0, -8, 0]}}
-            transition={{duration: 4, repeat: Infinity, ease: 'easeInOut'}}
-            className="w-[200px] h-[380px] md:w-[240px] md:h-[460px] bg-navy-light rounded-[32px] border-2 border-white/15 p-4 shadow-[0_40px_100px_rgba(0,0,0,0.5)] relative"
-          >
-            <div className="w-full h-full bg-navy rounded-[24px] overflow-hidden flex flex-col">
-              <div className="h-6 w-full flex justify-center items-start pt-1">
-                <div className="w-16 h-3 bg-navy-light rounded-full" />
-              </div>
-
-              <div className="p-4 flex flex-col gap-6">
-                <div className="flex justify-between items-center">
-                  <div className="text-white text-xs font-black">Attendance</div>
-                  <div className="bg-yellow text-navy px-2 py-0.5 rounded text-[10px] font-black">Present</div>
-                </div>
-
-                <div className="bg-navy-light/40 p-3 rounded-xl">
-                  <div className="text-white/60 text-[10px] font-bold">Today's Fee Due</div>
-                  <div className="text-white text-sm font-black">₹0</div>
-                </div>
-
-                <div className="flex items-end gap-2 pt-4">
-                  {[30, 60, 45, 80].map((h, i) => (
-                    <div key={i} className="flex-1 bg-yellow/40 rounded-t-sm" style={{height: `${h}px`}} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        <div className="flex justify-center md:justify-end items-end gap-3 sm:gap-6">
+          <PhoneMockup
+            src="/assets/mobile/screen1.jpeg"
+            alt="Trunkie app screen"
+            className="md:translate-y-4"
+            animateDelay={0}
+          />
+          <PhoneMockup
+            src="/assets/mobile/screen2.jpeg"
+            alt="Trunkie app screen"
+            className="md:-translate-y-2"
+            animateDelay={0.6}
+          />
         </div>
       </div>
     </section>
